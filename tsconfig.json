@@ -1,0 +1,32 @@
+{
+    // TSConfig Reference Page: https://tinyurl.com/y36govtr
+
+    "exclude": ["build", "node_modules", "**/.old"],
+    "include": ["src/**/*", "wallaby.js", "tsconfig.eslint.json", "./src/types/global.d.ts"],                     // Match both `.ts` and `.tsx` files.
+    "typeAcquisition": { "enable": false },      // Enforce exxplicit type depenencies.
+    "compilerOptions": {
+        "useDefineForClassFields": true,         // https://tinyurl.com/y7kpqjcy#use-spec-compliant-transpilation-for-class-properties
+        "outDir": "build",                       // Compiled code goes here.
+        "jsx": "react",                          // TypeScript support for `.tsx` files.
+        "plugins": [],                           // TypeScript language server plugins to load
+        "lib": ["es2021", "dom"],                // See: https://tinyurl.com/y5v7rza6
+        "sourceMap": true,                       // Generate corresponding `.map` file.
+        "target": "ES2020",                      // ECMAScript target version.
+        "types": ["node"],                       // Type declaration files to be included in compilation.
+        "typeRoots": ["node_modules/@types"],    // directories for type definition files to be included
+        "module": "commonjs",                    // Module code generation.
+        "moduleResolution": "node",              // How imports are handled.
+        "allowSyntheticDefaultImports": true,    // Allow `import React from "react"` over `import * as React...`.
+            "allowJs": true,
+                "checkJs": false,
+        "esModuleInterop": true,                 // ...not sure.
+        "strict": true,                          // Enable *all* strict checks. See https://tinyurl.com/y3mjmsp2
+        "downlevelIteration": true,              // Provide full support for iterables.
+        "experimentalDecorators": true,          // Enable decorators.
+        "declaration": false,                    // Generates corresponding d.ts files.
+        "removeComments": true,                  // Do not emit comments to output.
+        "noImplicitReturns": true,               // Error when not all code paths in function return a
+        "noUnusedLocals": false,                 // Causes false negatives. See https://tinyurl.com/y36tuzce.
+        // "resolveJsonModule": true,            // Allows importing and deriving type information for .json files.
+    }
+}
